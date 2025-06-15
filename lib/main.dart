@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import './pages/homepage.dart';
 import './pages/withdraw.dart';
+import './pages/deposit.dart';
+import './pages/profile.dart';
+import './pages/add_category.dart';
 
 void main() {
   runApp(const FinPocket());
@@ -18,6 +21,9 @@ class FinPocket extends StatelessWidget {
       routes: {
         Homepage.nameRoute: (context) => Homepage(),
         Withdraw.nameRoute: (context) => Withdraw(),
+        Profile.nameRoute: (context) => Profile(),
+        Deposit.nameRoute: (context) => Deposit(),
+        AddCategory.nameRoute: (context) => AddCategory(),
       },
     );
   }

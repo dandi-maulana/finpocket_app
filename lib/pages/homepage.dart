@@ -1,7 +1,10 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import './withdraw.dart';
+import './deposit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import './profile.dart';
+import './add_category.dart';
 
 class Homepage extends StatelessWidget {
   static const nameRoute = "/Homepage";
@@ -11,28 +14,6 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     var faker = Faker();
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size(40, 40),
-        child: AppBar(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(40),
-              bottomRight: Radius.circular(40),
-            ),
-          ),
-
-          title: Text(
-            "FinPocket",
-            style: GoogleFonts.roboto(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          backgroundColor: Colors.deepPurple,
-          centerTitle: true,
-        ),
-      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,7 +33,22 @@ class Homepage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  SizedBox(height: 30),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(width: 10),
+                      Text(
+                        "FinPocket",
+                        style: GoogleFonts.roboto(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
                   Row(
                     children: [
                       SizedBox(width: 40),
@@ -94,23 +90,38 @@ class Homepage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      IconButton(
-                        iconSize: 30,
-                        color: Colors.white,
+                      ElevatedButton.icon(
+                        // iconSize: 30,
+                        // color: Colors.white,
                         onPressed: () {
                           Navigator.pushNamed(context, Withdraw.nameRoute);
                         },
+                        style: ElevatedButton.styleFrom(),
                         icon: Icon(Icons.account_balance_wallet),
+                        label: Text(
+                          "Withdraw",
+                          style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                      IconButton(
-                        iconSize: 30,
-                        color: Colors.white,
-                        onPressed: () {},
+                      ElevatedButton.icon(
+                        // iconSize: 30,
+                        // color: Colors.white,
+                        onPressed: () {
+                          Navigator.pushNamed(context, Deposit.nameRoute);
+                        },
                         icon: Icon(Icons.account_balance),
+                        label: Text(
+                          "Deposit",
+                          style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -173,11 +184,20 @@ class Homepage extends StatelessWidget {
               icon: Icon(Icons.home, color: Colors.white, size: 30),
             ),
             FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AddCategory();
+                  },
+                );
+              },
               child: Icon(Icons.add, color: Colors.deepPurple, size: 30),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, Profile.nameRoute);
+              },
               icon: Icon(Icons.person, color: Colors.white, size: 30),
             ),
           ],

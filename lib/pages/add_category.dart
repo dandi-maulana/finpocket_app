@@ -1,38 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Withdraw extends StatelessWidget {
-  static const nameRoute = "/Withdraw";
-  const Withdraw({super.key});
+class AddCategory extends StatelessWidget {
+  static const nameRoute = "/AddCategory";
+  const AddCategory({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size(50, 50),
-        child: AppBar(
-          foregroundColor: Colors.white,
-          title: Text(
-            "Withdraw",
-            style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
+    return AlertDialog(
+      actions: [
+        ElevatedButton.icon(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          label: Text("Back"),
+          icon: Icon(Icons.undo),
+        ),
+        ElevatedButton.icon(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          label: Text("Add Category"),
+          icon: Icon(Icons.add),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.deepPurple,
+            foregroundColor: Colors.white,
           ),
-          backgroundColor: Colors.deepPurpleAccent,
+        ),
+      ],
+      title: Text(
+        "Add Your Category",
+        textAlign: TextAlign.center,
+        style: GoogleFonts.roboto(
+          color: Colors.deepPurple,
+          fontWeight: FontWeight.bold,
         ),
       ),
-      body: Center(
-        child: Container(
-          width: 300,
-          height: 300,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.deepPurple, Colors.deepPurpleAccent],
-            ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "Your Balance :",
+                style: GoogleFonts.roboto(color: Colors.deepPurple),
+              ),
+              Text(
+                "Rp. 100.000.000",
+                style: GoogleFonts.roboto(
+                  color: Colors.deepPurple,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
-          child: Column(children: [
-            SizedBox(height: 20),
-            Text("Withdraw Balance"),
-            SizedBox(height: 20),
-            SizedBox(height: 20),
+          SizedBox(height: 20),
           TextField(
             textCapitalization: TextCapitalization.characters,
             style: TextStyle(
@@ -86,9 +109,7 @@ class Withdraw extends StatelessWidget {
               ),
             ),
           ),
-
-            ]),
-        ),
+        ],
       ),
     );
   }
