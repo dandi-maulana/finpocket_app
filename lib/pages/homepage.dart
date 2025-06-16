@@ -158,8 +158,13 @@ class Homepage extends StatelessWidget {
                       color: Colors.deepPurpleAccent,
                       size: 40,
                     ),
-                    trailing: Icon(Icons.menu),
+                    trailing: IconButton(onPressed: (){
+
+                    }, 
+                    color: Colors.deepPurple,
+                    icon: Icon(Icons.account_balance_wallet)
                   ),
+                  )
                 );
               },
             ),
