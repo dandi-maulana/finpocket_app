@@ -31,8 +31,24 @@ class Withdraw extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 20),
-              Text("Withdraw Balance"),
-              SizedBox(height: 20),
+              Text("Withdraw Balance", style: GoogleFonts.roboto(color: Colors.deepPurple, fontSize: 30, fontWeight: FontWeight.bold)),
+              SizedBox(height: 10),
+              Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "Your Balance :",
+                style: GoogleFonts.roboto(color: Colors.deepPurple),
+              ),
+              Text(
+                "Rp. 100.000.000",
+                style: GoogleFonts.roboto(
+                  color: Colors.deepPurple,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
               SizedBox(height: 20),
               TextField(
                 textCapitalization: TextCapitalization.characters,
@@ -45,15 +61,15 @@ class Withdraw extends StatelessWidget {
                     borderSide: BorderSide(color: Colors.deepPurple),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  prefixIcon: Icon(Icons.category, color: Colors.deepPurple),
+                  prefixIcon: Icon(Icons.account_balance_wallet_outlined, color: Colors.deepPurple),
                   label: Text(
-                    "Category Name",
+                    "Total Balance",
                     style: TextStyle(
                       color: Colors.deepPurple,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  hintText: "Enter Category Name...",
+                  hintText: "Enter Balance Amount...",
                   hintStyle: TextStyle(
                     color: Colors.deepPurple,
                     fontStyle: FontStyle.italic,
@@ -69,7 +85,7 @@ class Withdraw extends StatelessWidget {
                 ),
                 decoration: InputDecoration(
                   prefixIcon: Icon(
-                    Icons.account_balance,
+                    Icons.account_balance_outlined,
                     color: Colors.deepPurple,
                   ),
                   border: OutlineInputBorder(
@@ -77,19 +93,30 @@ class Withdraw extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   label: Text(
-                    "Your Balance",
+                    "Account Number",
                     style: TextStyle(
                       color: Colors.deepPurple,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  hintText: "Enter Balance Amount...",
+                  hintText: "Enter Account Number...",
                   hintStyle: TextStyle(
                     color: Colors.deepPurple,
                     fontStyle: FontStyle.italic,
                   ),
                 ),
               ),
+            SizedBox(height: 20),
+            Center(
+              child: ElevatedButton.icon(onPressed: (){
+              }, label: Text("Send"),
+              icon: Icon(Icons.send),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepPurpleAccent,
+                foregroundColor: Colors.white
+              ),
+              ),
+            )
             ],
           ),
         ),
