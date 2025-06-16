@@ -31,26 +31,33 @@ class Deposit extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 20),
-              Text("Deposit Balance", style: GoogleFonts.roboto(color: Colors.deepPurple, fontSize: 30, fontWeight: FontWeight.bold)),
-              
-              Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
               Text(
-                "Your Balance :",
-                style: GoogleFonts.roboto(color: Colors.deepPurple),
-              ),
-              Text(
-                "Rp. 100.000.000",
+                "Deposit Balance",
                 style: GoogleFonts.roboto(
                   color: Colors.deepPurple,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-            ],
-          ),
-             SizedBox(height: 20),
-              SizedBox(height: 10), 
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    "Your Balance :",
+                    style: GoogleFonts.roboto(color: Colors.deepPurple),
+                  ),
+                  Text(
+                    "Rp. 100.000.000",
+                    style: GoogleFonts.roboto(
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+              SizedBox(height: 10),
               TextField(
                 textCapitalization: TextCapitalization.characters,
                 style: TextStyle(
@@ -62,7 +69,10 @@ class Deposit extends StatelessWidget {
                     borderSide: BorderSide(color: Colors.deepPurple),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  prefixIcon: Icon(Icons.account_balance_wallet_outlined, color: Colors.deepPurple),
+                  prefixIcon: Icon(
+                    Icons.account_balance_wallet_outlined,
+                    color: Colors.deepPurple,
+                  ),
                   label: Text(
                     "Total Balance",
                     style: TextStyle(
@@ -77,27 +87,65 @@ class Deposit extends StatelessWidget {
                   ),
                 ),
               ),
-           SizedBox(height: 10),  
-          Text("Virtual Account Number FinPocket", style: GoogleFonts.roboto(color: Colors.deepPurple)),
-          Text(
+              SizedBox(height: 10),
+              Text(
+                "Virtual Account Number FinPocket",
+                style: GoogleFonts.roboto(color: Colors.deepPurple),
+              ),
+              Text(
                 "882816004920",
                 style: GoogleFonts.roboto(
                   color: Colors.deepPurple,
                   fontWeight: FontWeight.bold,
                 ),
               ),
- 
-              SizedBox(height: 10),  
-            Center(
-              child: ElevatedButton.icon(onPressed: (){
-              }, label: Text("Deposit"),
-              icon: Icon(Icons.account_balance),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.deepPurpleAccent,
-                foregroundColor: Colors.white
+
+              SizedBox(height: 10),
+              Center(
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          actions: [
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Center(
+                                child: Text(
+                                  "OK",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ],
+                          icon: Icon(
+                            Icons.timer,
+                            color: Colors.deepPurple,
+                            size: 100,
+                          ),
+                          content: Text(
+                            "Waiting For Deposit",
+                            style: TextStyle(
+                              fontSize: 32,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  label: Text("Deposit"),
+                  icon: Icon(Icons.account_balance),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurpleAccent,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
               ),
-              ),
-            )
             ],
           ),
         ),
