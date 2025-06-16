@@ -13,7 +13,7 @@ class Withdraw extends StatelessWidget {
         child: AppBar(
           foregroundColor: Colors.white,
           title: Text(
-            "Withdraw",
+            "FinPocket Withdraw",
             style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.deepPurpleAccent,
@@ -21,73 +21,77 @@ class Withdraw extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          width: 300,
+          width: 400,
           height: 300,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.deepPurple, Colors.deepPurpleAccent],
-            ),
+            border: Border.all(color: Colors.deepPurpleAccent, width: 2.0),
+            borderRadius: BorderRadius.circular(20),
           ),
-          child: Column(children: [
-            SizedBox(height: 20),
-            Text("Withdraw Balance"),
-            SizedBox(height: 20),
-            SizedBox(height: 20),
-          TextField(
-            textCapitalization: TextCapitalization.characters,
-            style: TextStyle(
-              color: Colors.deepPurple,
-              fontWeight: FontWeight.bold,
-            ),
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.deepPurple),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              prefixIcon: Icon(Icons.category, color: Colors.deepPurple),
-              label: Text(
-                "Category Name",
+          padding: EdgeInsets.symmetric(horizontal: 12.0),
+          child: Column(
+            children: [
+              SizedBox(height: 20),
+              Text("Withdraw Balance"),
+              SizedBox(height: 20),
+              SizedBox(height: 20),
+              TextField(
+                textCapitalization: TextCapitalization.characters,
                 style: TextStyle(
                   color: Colors.deepPurple,
                   fontWeight: FontWeight.bold,
                 ),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepPurple),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  prefixIcon: Icon(Icons.category, color: Colors.deepPurple),
+                  label: Text(
+                    "Category Name",
+                    style: TextStyle(
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  hintText: "Enter Category Name...",
+                  hintStyle: TextStyle(
+                    color: Colors.deepPurple,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
               ),
-              hintText: "Enter Category Name...",
-              hintStyle: TextStyle(
-                color: Colors.deepPurple,
-                fontStyle: FontStyle.italic,
-              ),
-            ),
-          ),
-          SizedBox(height: 20),
-          TextField(
-            keyboardType: TextInputType.number,
-            style: TextStyle(
-              color: Colors.deepPurple,
-              fontWeight: FontWeight.bold,
-            ),
-            decoration: InputDecoration(
-              prefixIcon: Icon(Icons.account_balance, color: Colors.deepPurple),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.deepPurple),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              label: Text(
-                "Your Balance",
+              SizedBox(height: 20),
+              TextField(
+                keyboardType: TextInputType.number,
                 style: TextStyle(
                   color: Colors.deepPurple,
                   fontWeight: FontWeight.bold,
                 ),
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.account_balance,
+                    color: Colors.deepPurple,
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepPurple),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  label: Text(
+                    "Your Balance",
+                    style: TextStyle(
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  hintText: "Enter Balance Amount...",
+                  hintStyle: TextStyle(
+                    color: Colors.deepPurple,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
               ),
-              hintText: "Enter Balance Amount...",
-              hintStyle: TextStyle(
-                color: Colors.deepPurple,
-                fontStyle: FontStyle.italic,
-              ),
-            ),
+            ],
           ),
-
-            ]),
         ),
       ),
     );
