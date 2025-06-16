@@ -31,24 +31,31 @@ class Withdraw extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 20),
-              Text("Withdraw Balance", style: GoogleFonts.roboto(color: Colors.deepPurple, fontSize: 30, fontWeight: FontWeight.bold)),
-              SizedBox(height: 10),
-              Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
               Text(
-                "Your Balance :",
-                style: GoogleFonts.roboto(color: Colors.deepPurple),
-              ),
-              Text(
-                "Rp. 100.000.000",
+                "Withdraw Balance",
                 style: GoogleFonts.roboto(
                   color: Colors.deepPurple,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-            ],
-          ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    "Your Balance :",
+                    style: GoogleFonts.roboto(color: Colors.deepPurple),
+                  ),
+                  Text(
+                    "Rp. 100.000.000",
+                    style: GoogleFonts.roboto(
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
               SizedBox(height: 20),
               TextField(
                 textCapitalization: TextCapitalization.characters,
@@ -61,7 +68,10 @@ class Withdraw extends StatelessWidget {
                     borderSide: BorderSide(color: Colors.deepPurple),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  prefixIcon: Icon(Icons.account_balance_wallet_outlined, color: Colors.deepPurple),
+                  prefixIcon: Icon(
+                    Icons.account_balance_wallet_outlined,
+                    color: Colors.deepPurple,
+                  ),
                   label: Text(
                     "Total Balance",
                     style: TextStyle(
@@ -106,17 +116,52 @@ class Withdraw extends StatelessWidget {
                   ),
                 ),
               ),
-            SizedBox(height: 20),
-            Center(
-              child: ElevatedButton.icon(onPressed: (){
-              }, label: Text("Withdraw"),
-              icon: Icon(Icons.account_balance_wallet),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.deepPurpleAccent,
-                foregroundColor: Colors.white
+              SizedBox(height: 20),
+              Center(
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          actions: [
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Center(
+                                child: Text(
+                                  "OK",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ],
+                          icon: Icon(
+                            Icons.verified,
+                            color: Colors.deepPurple,
+                            size: 100,
+                          ),
+                          content: Text(
+                            "Withdraw Successfully",
+                            style: TextStyle(
+                              fontSize: 32,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  label: Text("Withdraw"),
+                  icon: Icon(Icons.account_balance_wallet),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurpleAccent,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
               ),
-              ),
-            )
             ],
           ),
         ),

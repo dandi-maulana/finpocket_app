@@ -14,7 +14,7 @@ class AddCategory extends StatelessWidget {
             Navigator.pop(context);
           },
           label: Text("Back"),
-          icon: Icon(Icons.undo),
+          icon: Icon(Icons.arrow_back_ios),
         ),
         ElevatedButton.icon(
           onPressed: () {

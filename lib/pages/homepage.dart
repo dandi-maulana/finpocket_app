@@ -158,13 +158,131 @@ class Homepage extends StatelessWidget {
                       color: Colors.deepPurpleAccent,
                       size: 40,
                     ),
-                    trailing: IconButton(onPressed: (){
-
-                    }, 
-                    color: Colors.deepPurple,
-                    icon: Icon(Icons.account_balance_wallet)
+                    trailing: IconButton(
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              actions: [
+                                ElevatedButton.icon(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    foregroundColor: Colors.white,
+                                    backgroundColor: Colors.deepPurple,
+                                  ),
+                                  label: Text("Withdraw"),
+                                  icon: Icon(Icons.account_balance_wallet),
+                                ),
+                                ElevatedButton.icon(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    foregroundColor: Colors.white,
+                                    backgroundColor: Colors.deepPurple,
+                                  ),
+                                  label: Text("Deposit"),
+                                  icon: Icon(Icons.account_balance),
+                                ),
+                                ElevatedButton.icon(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    foregroundColor: Colors.white,
+                                    backgroundColor: Colors.red,
+                                  ),
+                                  label: Text("Delete"),
+                                  icon: Icon(Icons.delete),
+                                ),
+                              ],
+                              title: Row(
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    icon: Icon(
+                                      Icons.arrow_back_ios,
+                                      color: Colors.deepPurple,
+                                    ),
+                                  ),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    "Withdraw Category",
+                                    style: GoogleFonts.roboto(
+                                      color: Colors.deepPurple,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              content: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Your Balance :",
+                                        style: GoogleFonts.roboto(
+                                          color: Colors.deepPurple,
+                                        ),
+                                      ),
+                                      SizedBox(width: 10),
+                                      Text(
+                                        "Rp. 100.000.000",
+                                        style: GoogleFonts.roboto(
+                                          color: Colors.deepPurple,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20),
+                                  TextField(
+                                    keyboardType: TextInputType.number,
+                                    style: TextStyle(
+                                      color: Colors.deepPurple,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    decoration: InputDecoration(
+                                      prefixIcon: Icon(
+                                        Icons.account_balance_wallet,
+                                        color: Colors.deepPurple,
+                                      ),
+                                      border: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Colors.deepPurple,
+                                        ),
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      label: Text(
+                                        "Your Balance",
+                                        style: TextStyle(
+                                          color: Colors.deepPurple,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      hintText: "Enter Balance Amount...",
+                                      hintStyle: TextStyle(
+                                        color: Colors.deepPurple,
+                                        fontStyle: FontStyle.italic,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      color: Colors.deepPurple,
+                      icon: Icon(Icons.menu),
+                    ),
                   ),
-                  )
                 );
               },
             ),
