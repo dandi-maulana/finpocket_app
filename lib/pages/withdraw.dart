@@ -109,8 +109,8 @@ class Withdraw extends StatelessWidget {
             SizedBox(height: 20),
             Center(
               child: ElevatedButton.icon(onPressed: (){
-              }, label: Text("Send"),
-              icon: Icon(Icons.send),
+              }, label: Text("Withdraw"),
+              icon: Icon(Icons.account_balance_wallet),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.deepPurpleAccent,
                 foregroundColor: Colors.white

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
 import './homepage.dart';
+import './sign_in.dart';
 import 'package:google_fonts/google_fonts.dart';
 import './add_category.dart';
 
@@ -80,7 +81,9 @@ class Profile extends StatelessWidget {
               ),
               SizedBox(height: 30),
               ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, Signin.nameRoute);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.redAccent,
                   foregroundColor: Colors.white,
