@@ -7,6 +7,7 @@ import './pages/add_category.dart';
 import './pages/wellcome.dart';
 import './pages/sign_in.dart';
 import './pages/sign_up.dart';
+import './pages/pay.dart';
 
 void main() {
   runApp(const FinPocket());
@@ -29,7 +30,8 @@ class FinPocket extends StatelessWidget {
         AddCategory.nameRoute: (context) => AddCategory(),
         Wellcome.nameRoute: (context) => Wellcome(),
         Signin.nameRoute: (context) => Signin(),
-        Signup.nameRoute: (context) => Signup()
+        Signup.nameRoute: (context) => Signup(),
+        Pay.nameRoute: (context) => Pay(),
       },
     );
   }
