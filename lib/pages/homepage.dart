@@ -5,6 +5,7 @@ import './deposit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import './profile.dart';
 import './add_category.dart';
+import './pay.dart';
 
 class Homepage extends StatelessWidget {
   static const nameRoute = "/Homepage";
@@ -94,6 +95,21 @@ class Homepage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      ElevatedButton.icon(
+                        // iconSize: 30,
+                        // color: Colors.white,
+                        onPressed: () {
+                          Navigator.pushNamed(context, Pay.nameRoute);
+                        },
+                        style: ElevatedButton.styleFrom(),
+                        icon: Icon(Icons.payment),
+                        label: Text(
+                          "Pay",
+                          style: GoogleFonts.roboto(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                       ElevatedButton.icon(
                         // iconSize: 30,
                         // color: Colors.white,
